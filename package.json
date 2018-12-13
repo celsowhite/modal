@@ -1,7 +1,7 @@
 {
   "name": "@celsowhite/modal",
-  "version": "1.0.0",
-  "description": "Simple modal initialization.",
+  "version": "1.0.1",
+  "description": "Simple modal.",
   "source": "src/modal.js",
   "module": "dist/modal.es.js",
   "main": "dist/modal.js",
@@ -11,9 +11,20 @@
     "watch": "microbundle watch --compress false",
     "publish": "npm publish --access public"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "modal"
   ],
+  "homepage": "https://github.com/celsowhite/modal#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/celsowhite/modal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/celsowhite/modal/issues"
+  },
   "author": "Celso White",
   "license": "MIT",
   "devDependencies": {

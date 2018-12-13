@@ -49,7 +49,7 @@ Transparent Layer
 Modal Content
 -----------*/
 
-.modal__content {
+.modal__content-container {
     position: relative;
     max-width: 500px;
     width: 90%;

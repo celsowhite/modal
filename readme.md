@@ -1,6 +1,6 @@
 # Modal
 
-Simple modal initialization.
+Simple modal.
 
 ## Install
 
@@ -17,8 +17,8 @@ Download the library file from dist/modal.umd.js and include it in your sites fi
 ###### Node
 
 ```javascript
-import modal from '@celsowhite/modal'
-modal()
+import modal from '@celsowhite/modal';
+modal();
 ```
 
 ###### Browser
@@ -36,7 +36,7 @@ To use the script you'll need to include two elements in your markup. A trigger 
 
 ###### Trigger
 
-The trigger class can be used on any element and multiple times on the page. Each trigger element must include the data-modal-id attribute that specifies which modal it opens.
+The trigger class can be used on any element and multiple times on the page. Each trigger element must include the data-modal-id attribute that specifies which modal it opens. Optionally, you can include a modal-content-to-show element which will be the content that is injected into the modal.
 
 ```html
 <a class="modal-trigger" data-modal-id="content-modal" href="#">
@@ -49,15 +49,12 @@ The trigger class can be used on any element and multiple times on the page. Eac
 
 ###### Modal
 
-The modal markup will be populated any time a user clicks a trigger. If a modal-close element is not a child of the modal itself then you need to add data-modal-id so it knows which modal to close.
-
-Note: The transparent layer element is not required. It's a good way to close the modal by clicking out of the content box.
+The modal will open any time a user clicks a trigger. Content will be injected into the modal only if the trigger that opened it has a modal-content-to-show element. If a modal-close element is not a child of the modal itself then you need to add data-modal-id so it knows which modal to close.
 
 ```html
 <div class="modal" id="content-modal">
-    <div class="modal__transparent-layer modal-close"></div>
     <div class="modal__content"></div>
-    <a class="modal-close modal__close-icon" href="#">Close</a>
+    <div class="close-icon modal-close"></div>
 </div>
 ```
 
@@ -74,7 +71,7 @@ modal({
     modalElement: '.modal', // The modal element.
     modalTriggerElement: '.modal-trigger', // The element that will trigger a modal to open.
     modalCloseElement: '.modal-close', // The element that will trigger a modal to close. Must be a child of the modal element.
-    modalContentElement: '.modal__content', // The content element that will be populated when the modal is opened. Must be a child of the modal element.
+    modalContentElement: '.modal__content', // The content element that will be populated when the modal is opened.
     modalContents: '.modal-content-to-show', // The modal contents that will appear when a specific trigger is clicked. Must be a child of the modal trigger element.
     modalOpenClass: 'modal--is-open' // Class that is toggled on the modal element when the modal is open/closed.
 })
@@ -102,4 +99,4 @@ modals.forEach(function(modal){
 
 ## License
 
-[MIT License](http://zenorocha.mit-license.org/) © Celso White
+MIT License © [Celso White](https://celsowhite.com)

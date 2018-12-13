@@ -42,9 +42,11 @@ export default function modal(customSettings = {}) {
 
         const modalContentContainer = modal.querySelector(settings.modalContentElement);
 
-        // Set The Modal Content
+        // Set the modal content if there was content passed to this function
 
-        modalContentContainer.innerHTML = modalContent;
+        if(modalContent && modalContentContainer) {
+            modalContentContainer.innerHTML = modalContent;
+        }
 
         modal.classList.add(settings.modalOpenClass);
 
@@ -68,17 +70,9 @@ export default function modal(customSettings = {}) {
 
         const modal = document.querySelector('#' + modalId);
 
-        const modalContentContainer = modal.querySelector(settings.modalContentElement);
-
         // Remove the open class from the modal.
 
         modal.classList.remove(settings.modalOpenClass);
-
-        // Clear the inner modal contents.
-
-        window.setTimeout(function () {
-            modalContentContainer.innerHTML = '';
-        }, 500);
 
         // Dispatch Close Event
 
@@ -102,11 +96,17 @@ export default function modal(customSettings = {}) {
 
             e.preventDefault();
 
-            // Grab the modal info (id and the content we want to show).
+            // Grab the modal ID.
 
             const modalId = trigger.dataset.modalId;
 
-            const modalContent = trigger.querySelector(settings.modalContents).innerHTML;
+            // Grab the content element.
+
+            const modalContentElement = trigger.querySelector(settings.modalContents);
+
+            // If there is a content element within the modal trigger then that will be the content set in the modal.
+
+            const modalContent = modalContentElement ? modalContentElement.innerHTML : '';
 
             // Open it up.
 
