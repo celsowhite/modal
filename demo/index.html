@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Modal</title>
+        <link href="./demo.css" rel="stylesheet" type="text/css" media="all" />
+    </head>
+
+    <body>
+        
+        <!-- 
+        Trigger Markup
+        ---
+        Trigger can be included on any element and multiple times on the page.
+        -->
+
+        <a class="modal-trigger" data-modal-id="content-modal" href="#">
+            Content Modal
+            <div class="modal-content-to-show hide">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer finibus tempus nulla.</p>
+            </div>
+        </a>
+        
+        ---------------
+
+        <a class="modal-trigger" data-modal-id="video-modal" href="#">
+            Video Modal
+            <div class="modal-content-to-show hide">
+                <iframe src="https://player.vimeo.com/video/40482747?color=ffffff&byline=0&portrait=0" width="100%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </a>
+        
+        <!-- 
+        Modal Markup
+        -->
+
+        <div class="modal" id="content-modal">
+            <div class="modal__transparent-layer modal-close" data-modal-id="content-modal"></div>
+            <div class="modal__content"></div>
+            <a class="modal-close modal__close-icon" href="#">Close</a>
+        </div>
+
+        <div class="modal" id="video-modal">
+            <div class="modal__transparent-layer modal-close"></div>
+            <div class="modal__content"></div>
+            <a class="modal-close modal__close-icon" href="#">Close</a>
+        </div>
+
+        <!-- Library (Universal but via npm package will be es6) -->
+
+        <script src="../dist/modal.umd.js"></script>
+
+        <!-- Init Script -->
+
+        <script>
+            
+            // Setup / Bind Listeners
+
+            modal();
+            
+            // Test event listeners.
+            
+            var modals = document.querySelectorAll('.modal');
+
+            modals.forEach(function(modal){
+
+                modal.addEventListener('open', function (e) {
+                    console.log(e.target);
+                });
+
+                modal.addEventListener('close', function (e) {
+                    console.log(e.target);
+                });
+
+            });
+
+        </script>
+
+    </body>
+
+</html>

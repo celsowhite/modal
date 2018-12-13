@@ -1,0 +1,22 @@
+{
+  "name": "@celsowhite/modal",
+  "version": "1.0.0",
+  "description": "Simple modal initialization.",
+  "source": "src/modal.js",
+  "module": "dist/modal.es.js",
+  "main": "dist/modal.js",
+  "umd:main": "dist/modal.umd.js",
+  "scripts": {
+    "build": "microbundle build",
+    "watch": "microbundle watch --compress false",
+    "publish": "npm publish --access public"
+  },
+  "keywords": [
+    "modal"
+  ],
+  "author": "Celso White",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "^0.8.3"
+  }
+}
